@@ -30,4 +30,12 @@ class Subscriber extends Model
         'UNCONFIRMED' => 'unconfirmed',
     ];
 
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function fields()
+    {
+        return $this->belongsToMany(Field::class);
+    }
 }
