@@ -34,7 +34,7 @@
                                 Laravel Seeders to populate tables.
                             </li>
                             <li>
-                                Using Eloquent as a elegant ORM to handle subscribers, fields and their relationship.
+                                Using Eloquent as an elegant ORM to handle subscribers, fields and their relationship.
                             </li>
                             <li>
                                 Using Laravel model properties to avoid unwanted reactivation of subscribers which the
