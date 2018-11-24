@@ -43,6 +43,16 @@ class SubscriberController extends Controller
     }
 
     /**
+     * @param $subscriberId
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function show($subscriberId)
+    {
+        $newSubscriber = $this->subscriberManager->subscriberRepository->getFull($subscriberId);
+        return (new SubscriberResource($newSubscriber))->response()->setStatusCode(200);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param SubscriberRequest $request
@@ -51,6 +61,7 @@ class SubscriberController extends Controller
     public function store(SubscriberRequest $request)
     {
         $newSubscriber = $this->subscriberManager->subscribe($request->all());
+        // We can raise event here event(new UserSubscribed()) for further actions
         return (new SubscriberResource($newSubscriber))->response()->setStatusCode(201);
     }
 

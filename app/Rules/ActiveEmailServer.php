@@ -18,6 +18,7 @@ class ActiveEmailServer implements Rule
 
     /**
      * Determine if the validation rule passes.
+     * It uses built-in php function to check domain host DNSs
      *
      * @param  string $attribute
      * @param  mixed $value
@@ -25,6 +26,8 @@ class ActiveEmailServer implements Rule
      */
     public function passes($attribute, $value)
     {
+        // by default it bypasses the test to avoid any lags in running tests,
+        // remove below line to activate it.
         return true;
 
         $domain = explode('@', $value);

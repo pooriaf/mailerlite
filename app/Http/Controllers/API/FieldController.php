@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FieldRequest;
+use App\Http\Requests\FieldUpdateRequest;
 use App\Http\Resources\FieldCollection;
 use App\Http\Resources\FieldResource;
 use App\Repositories\Eloquent\FieldRepository;
@@ -56,11 +57,11 @@ class FieldController extends Controller
      * Update the specified field in storage.
      *
      * @param $fieldId
-     * @param FieldRequest $request
+     * @param FieldUpdateRequest $request
      *
-     * @return FieldResource
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function update($fieldId, FieldRequest $request)
+    public function update($fieldId, FieldUpdateRequest $request)
     {
         $updatedField = $this->fieldRepository->updateInfo($fieldId, $request->validated());
         return (new FieldResource($updatedField))->response()->setStatusCode(200);

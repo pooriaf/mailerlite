@@ -18,25 +18,25 @@ class FieldFakerHelper
      * @param $type
      * @return string
      */
-    public static function getTitle($faker, $type)
+    public static function getValue($faker, $type)
     {
         switch ($type) {
             case Field::TYPE['DATE'] == $type:
-                $title = $faker->date;
+                $value = $faker->date;
                 break;
             case Field::TYPE['NUMBER'] == $type:
-                $title = $faker->numberBetween;
+                $value = $faker->numberBetween;
                 break;
             case Field::TYPE['STRING'] == $type:
-                $title = $faker->sentence;
+                $value = $faker->sentence;
                 break;
             case Field::TYPE['BOOLEAN'] == $type:
-                $title = $faker->boolean;
+                $value = $faker->boolean;
                 break;
             default:
-                $title = 'UNDEFINED';
+                $value = 'UNDEFINED';
         }
 
-        return $title;
+        return $value;
     }
 }

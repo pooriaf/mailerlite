@@ -6,7 +6,7 @@ use App\Models\Field;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class FieldRequest extends FormRequest
+class FieldUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,8 @@ class FieldRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'max:100'],
-            'type' => ['required', Rule::in(Field::TYPE)]
+            'title' => ['max:100'],
+            'type' => [Rule::in(Field::TYPE)]
         ];
     }
 }

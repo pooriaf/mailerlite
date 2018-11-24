@@ -17,5 +17,7 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
+
 Route::apiResource('subscribers', 'API\SubscriberController');
 Route::apiResource('fields', 'API\FieldController')->except('show');
+

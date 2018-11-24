@@ -17,7 +17,7 @@ class Subscriber extends Model
      * Guarding state parameter
      * @var array
      */
-    protected $fillable = ['email', 'name'];
+    protected $fillable = ['email', 'name', 'state'];
 
     /**
      * Representing the enum state column of subscribers resource

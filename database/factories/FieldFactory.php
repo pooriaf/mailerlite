@@ -9,7 +9,7 @@ use Faker\Generator as Faker;
  */
 $factory->define(Field::class, function (Faker $faker) {
     return [
-        'title' => $faker->unique()->sentence(1),
+        'title' => $faker->unique()->word,
         'type' => $faker->randomElement(Field::TYPE)
     ];
 });

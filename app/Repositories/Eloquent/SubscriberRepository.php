@@ -28,7 +28,9 @@ class SubscriberRepository extends BaseRepository
      */
     public function getAll($number = 10)
     {
-        return $this->model->with('fields')->paginate($number);
+        return $this->model->with(['fields' => function ($query) {
+            $query->select('fields.title', 'fields.type', 'field_subscriber.value');
+        }])->paginate($number);
     }
 
     /**
@@ -47,6 +49,8 @@ class SubscriberRepository extends BaseRepository
 
     public function getFull($id)
     {
-        return $this->model->where('id', $id)->with('fields')->first();
+        return $this->model->where('id', $id)->with(['fields' => function ($query) {
+            $query->select('fields.title', 'fields.type', 'field_subscriber.value');
+        }])->firstOrFail();
     }
 }

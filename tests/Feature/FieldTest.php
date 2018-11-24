@@ -55,8 +55,8 @@ class FieldTest extends TestCase
         $field = factory(Field::class)->create();
 
         $payload = [
-          'type' => Field::TYPE['STRING'],
-          'title' => $this->faker->sentence . ' Updated!'
+            'type' => Field::TYPE['STRING'],
+            'title' => $this->faker->word . 'Updated!'
         ];
 
         $response = $this->json('PATCH', route('fields.update', $field->id), $payload);

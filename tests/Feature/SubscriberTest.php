@@ -9,6 +9,10 @@ use SubscribersTableSeeder;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 
+/**
+ * Class SubscriberTest
+ * @package Tests\Feature
+ */
 class SubscriberTest extends TestCase
 {
     use WithFaker;
@@ -43,12 +47,17 @@ class SubscriberTest extends TestCase
         ]);
     }
 
+    /**
+     * Trying to subscribe a user with custom fields
+     * At first it makes a new subscriber and add three custom fields to fields resource then by using those fields, It adds data to field_subscriber table.
+     *
+     */
     public function testCanSubscribeWithCustomFields()
     {
         $subscriber = factory(Subscriber::class)->state('new_subscriber')->make();
         $fields = factory(Field::class, 3)->create();
         foreach ($fields as $field) {
-            $subscriber->{$field->title} = FieldFakerHelper::getTitle($this->faker, $field->type);
+            $subscriber->{$field->title} = FieldFakerHelper::getValue($this->faker, $field->type);
         }
         $response = $this->json('POST', route('subscribers.store'), $subscriber->toArray());
         $response->assertStatus(201);
@@ -57,6 +66,11 @@ class SubscriberTest extends TestCase
         ]);
     }
 
+    /**
+     * Trying to update subscriber with custom fields
+     * At first, it creates a new subscriber then by creating new fields, adds custom data to field_subscriber table.
+     *
+     */
     public function testCanUpdateSubscriberWithCustomFields()
     {
         $subscriber = factory(Subscriber::class)->state('new_subscriber')->create();
@@ -66,7 +80,7 @@ class SubscriberTest extends TestCase
         ];
         $fields = factory(Field::class, 2)->create();
         foreach ($fields as $field) {
-            $payload[$field->title] = FieldFakerHelper::getTitle($this->faker, $field->type);
+            $payload[$field->title] = FieldFakerHelper::getValue($this->faker, $field->type);
         }
 
         $response = $this->json('PATCH', route('subscribers.update', $subscriber->id), $payload);
@@ -76,6 +90,10 @@ class SubscriberTest extends TestCase
         ]);
     }
 
+    /**
+     * Trying to remove a subscriber
+     *
+     */
     public function testCanRemoveSubscriber()
     {
         $subscriber = factory(Subscriber::class)->state('random_subscriber')->create();
