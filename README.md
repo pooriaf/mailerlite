@@ -12,7 +12,7 @@ How to setup:
 * Migrate tables `php artisan migrate`
 * You can execute PHPUnit to check everything is fine `./vendor/bin/phpunit`
 * Open root of the project (/ URI) in a browser for more information and sample of requests to resources
-![alt text](https://drive.google.com/open?id=1lACkdKkGHGwqv9sa5acXb7amsKl9A2Q0)
+![image](https://drive.google.com/uc?export=view&id=1lACkdKkGHGwqv9sa5acXb7amsKl9A2Q0)
 
 ##### Feel free to ask any question
 pooriaf@gmail.com

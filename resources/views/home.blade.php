@@ -74,7 +74,7 @@
                             Content-Type: application/json
                         </div>
                         </p>
-                        <div class="alert alert-dark">
+                        <div class="alert alert-secondary">
                             <p>
                             <h5>Get list of subscribers</h5>
                             GET <a href="{{ route('subscribers.index') }}">api/subscribers</a>
@@ -82,6 +82,10 @@
                             <p>
                             <h5>Store a subscriber</h5>
                             POST /subscribers
+                            <div>
+                                params:
+                                name (required|validated), email (required|validated), any extra fields by title (must be defined before by fields API, unless they get bypassed)
+                            </div>
                             </p>
                             <p>
                             <h5>Get a subscriber</h5>
@@ -90,13 +94,17 @@
                             <p>
                             <h5>Update a subscriber</h5>
                             PATCH api/subscribers/{id}
+                            <div>
+                                params:
+                                name (validated), email (validated), state (validated|active, unsubscribed, junk, bounced, unconfirmed), any extra fields by title (must be defined before by fields API, unless they get bypassed, previous extra fields should send again otherwise the get removed)
+                            </div>
                             </p>
                             <p>
                             <h5>Delete a subscriber (resource | soft delete)</h5>
                             DELETE api/subscribers/{id}
                             </p>
                         </div>
-                        <div class="alert alert-dark">
+                        <div class="alert alert-secondary">
                             <p>
                             <h5>Get list of fields</h5>
                             GET api/fields
@@ -104,10 +112,18 @@
                             <p>
                             <h5>Store a field</h5>
                             POST api/fields
+                            <div>
+                                params:
+                                title (required|validated), type (required|validated|date, number, string, boolean)
+                            </div>
                             </p>
                             <p>
                             <h5>Update a field</h5>
                             PATCH api/fields/{id}
+                            <div>
+                                params:
+                                title (validated), type (validated|date, number, string, boolean)
+                            </div>
                             </p>
                             <p>
                             <h5>Delete a field (resource | soft delete)</h5>
@@ -117,7 +133,17 @@
                         </p>
                         <h6>Notes</h6>
                         <p>
-                            You can also run tests (./vendor/bin/phpunit) to populate tables (make sure you have migrated
+                            There is no way to implicitly reactivate user, unless to send update request with active
+                            state
+                        </p>
+                        <p>
+                            by default for some lags in running test, I disabled the mail host checking on new user
+                            subscription,
+                            to enable it you can check Rules/ActiveEmailServer.php file and comment line 31
+                        </p>
+                        <p>
+                            You can also run tests (./vendor/bin/phpunit) to populate tables (make sure you have
+                            migrated
                             tables before)
                         </p>
                         <p>
