@@ -30,7 +30,7 @@
                                 more tests for production apps.
                             </li>
                             <li>
-                                I developed data model through migrations for table generations, Faker library and
+                                Developing data model through migrations for table generations, Faker library and
                                 Laravel Seeders to populate tables.
                             </li>
                             <li>
@@ -45,14 +45,14 @@
                                 matter.
                             </li>
                             <li>
-                                Using Laravel API features like API Resources, API routes,... to create RESTful API.
+                                Using Laravel API features like API Resources, API routes,... to create RESTful APIs.
                             </li>
                             <li>
                                 Developing request validation through Laravel requests and validation, I built a custom
                                 validation rule to validate emails against inactive hosts.
                             </li>
                             <li>
-                                Developing subscribers manager as a decoupled class to make it reusable/replaceable
+                                Developing subscribers manager as a decoupled class to make it reusable/replaceable in different ways as the task pointed.
                             </li>
                             <li>
                                 Using Laravel container to bind subscribers manager service interface to the application

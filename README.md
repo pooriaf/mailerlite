@@ -3,7 +3,6 @@ _Author: Pooria Farhad,_
 November 24, 2018
 
 ### Prerequisites
-How to setup:
 * Install Laravel framework requirements like WebServer and MySQL, PHP >= 7.1.3  
 
 ### How to run
