@@ -20,7 +20,8 @@ class Subscriber extends Model
     protected $fillable = ['email', 'name'];
 
     /**
-     * Representing the enum state column of subscribers table
+     * Representing the enum state column of subscribers resource
+     *
      */
     const STATE = [
         'ACTIVE' => 'active',
@@ -32,6 +33,8 @@ class Subscriber extends Model
 
 
     /**
+     * Many to Many relationship
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function fields()

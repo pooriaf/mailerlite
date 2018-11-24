@@ -25,6 +25,8 @@ class ActiveEmailServer implements Rule
      */
     public function passes($attribute, $value)
     {
+        return true;
+
         $domain = explode('@', $value);
         if (checkdnsrr($domain[1], "MX") || checkdnsrr($domain[1], "A"))
             return true;

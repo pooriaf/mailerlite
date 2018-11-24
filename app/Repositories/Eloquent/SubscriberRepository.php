@@ -44,4 +44,9 @@ class SubscriberRepository extends BaseRepository
         $model->update($data);
         return $model->fresh();
     }
+
+    public function getFull($id)
+    {
+        return $this->model->where('id', $id)->with('fields')->first();
+    }
 }
