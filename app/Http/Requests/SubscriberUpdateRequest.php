@@ -28,7 +28,7 @@ class SubscriberUpdateRequest extends FormRequest
     {
         return [
             'email' => ['email', 'unique:subscribers,email,:email', new ActiveEmailServer()],
-            'state' => [hoRule::in(Subscriber::STATE)],
+            'state' => [Rule::in(Subscriber::STATE)],
         ];
     }
 }
